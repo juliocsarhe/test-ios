@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ListView: View {
+    var id_token: String
     @State var tasks = [Task]()
     
     var body: some View {
@@ -91,6 +92,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(id_token: "")
     }
 }

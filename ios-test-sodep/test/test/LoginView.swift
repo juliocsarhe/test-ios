@@ -11,7 +11,7 @@ struct LoginView: View {
     @State private var username: String = "username"
     @State private var password: String = "password"
     @State private var result: LoginModel!
-    @State var loggedIn = false
+    let id_token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1NTc1NDcxNX0.gLecJGluphVrFpqBibbdv1P_dzAbgbwzFpnb3W9k2kaGGJop1Yno7MGem6mFH6HBq7Ep0yhbBD6RIxbRm8xErQ"//token obtenido en postman
     var body: some View {
         NavigationView{
         VStack{
@@ -35,7 +35,7 @@ struct LoginView: View {
                  .padding(.horizontal, 30)
                  .background(.black)
                  .padding(.bottom, 30)
-                NavigationLink(destination: ListView(), isActive: $loggedIn) {
+                NavigationLink(destination: ListView(id_token: id_token)) {
                     Text("Sign In")
                 }.padding(10)
                 .border(.black, width: 2)
@@ -53,9 +53,9 @@ struct LoginView: View {
         
     }
     func loadData(completion:@escaping (LoginModel) -> ()) {
-        let body: [String: Any] = ["password": "admin",
+        let body: [String: Any] = ["password": password,
                                    "rememberMe": true,
-                                   "username": "admin"]
+                                   "username": username]
         let jsonBody = try? JSONSerialization.data(withJSONObject: body)
         guard let url = URL(string: Constants.String.baseUrl + "/api/authenticate") else {
             print("Invalid url...")
@@ -71,7 +71,7 @@ struct LoginView: View {
         URLSession.shared.dataTask(with: request) { data, response, error in
 //            let loginModel = try! JSONDecoder().decode(LoginModel.self, from: data!)
 //            print(loginModel)
-            let loginModel = LoginModel(id_token: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1NTc1NDcxNX0.gLecJGluphVrFpqBibbdv1P_dzAbgbwzFpnb3W9k2kaGGJop1Yno7MGem6mFH6HBq7Ep0yhbBD6RIxbRm8xErQ")
+            let loginModel = LoginModel(id_token: id_token)
             DispatchQueue.main.async {
                 completion(loginModel)
             }
