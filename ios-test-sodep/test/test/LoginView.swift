@@ -11,14 +11,16 @@ struct LoginView: View {
     @State private var username: String = "username"
     @State private var password: String = "password"
     @State private var result: LoginModel!
+    @State var loggedIn = false
     var body: some View {
+        NavigationView{
         VStack{
             Image("loginIcon").resizable()
                         .clipShape(Circle())
                         .overlay {
                             Circle().stroke(.gray, lineWidth: 4)
                         }.frame(width: 150, height: 150, alignment: .center)
-                .shadow(radius: 7).padding(30)
+                .shadow(radius: 7)
             Spacer()
             VStack {
                 TextField("username", text: $username).cornerRadius(5.0).multilineTextAlignment(.center)
@@ -33,11 +35,10 @@ struct LoginView: View {
                  .padding(.horizontal, 30)
                  .background(.black)
                  .padding(.bottom, 30)
-                Button("Sign in"){
-                    loadData(completion: { response in
-                        print(response)
-                    })
-                }.padding().border(.black, width: 2)
+                NavigationLink(destination: ListView(), isActive: $loggedIn) {
+                    Text("Register")
+                }.padding(10)
+                .border(.black, width: 2)
             }.padding(.horizontal, 72)
             
             Spacer(minLength: 60)
@@ -48,7 +49,7 @@ struct LoginView: View {
                 
             }.padding()
         }
-        
+        }
         
     }
     func loadData(completion:@escaping (LoginModel) -> ()) {
@@ -68,8 +69,9 @@ struct LoginView: View {
         request.httpBody = jsonBody
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            let loginModel = try! JSONDecoder().decode(LoginModel.self, from: data!)
-            print(loginModel)
+//            let loginModel = try! JSONDecoder().decode(LoginModel.self, from: data!)
+//            print(loginModel)
+            let loginModel = LoginModel(id_token: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1NTc1NDcxNX0.gLecJGluphVrFpqBibbdv1P_dzAbgbwzFpnb3W9k2kaGGJop1Yno7MGem6mFH6HBq7Ep0yhbBD6RIxbRm8xErQ")
             DispatchQueue.main.async {
                 completion(loginModel)
             }
