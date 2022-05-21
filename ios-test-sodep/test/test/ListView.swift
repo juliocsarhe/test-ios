@@ -14,16 +14,43 @@ struct ListView: View {
     var body: some View {
         NavigationView{
             //se muestran lista de tareas con datos en duro por inconvenientes al realizar peticiones al servidor
-        List(tasks) { task in
-            Text("\(task.title)")
-        }
-        .onAppear(){
-            getData()
-//            loadData(completion: { tasks in
-//                self.tasks = tasks
-//            })
-        }
-        
+            ZStack{
+                List(tasks) { task in
+                    NavigationLink(destination: TaskDetailView(task: task)){
+                        Text("\(task.title)")
+                    }
+                }
+                .onAppear(){
+                getData()
+    //            loadData(completion: { tasks in
+    //                self.tasks = tasks
+    //            })
+                }
+                VStack{
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("+")
+                                .font(.system(.largeTitle))
+                                .frame(width: 60, height: 60)
+                                .foregroundColor(Color.white)
+                                .padding(.bottom, 2)
+                        })
+                        .background(Color.blue)
+                        .cornerRadius(30)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                    }
+                }
+            }
+            
+            
         }.navigationTitle("Tasks")
     }
     

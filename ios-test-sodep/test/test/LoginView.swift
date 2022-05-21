@@ -36,7 +36,7 @@ struct LoginView: View {
                  .background(.black)
                  .padding(.bottom, 30)
                 NavigationLink(destination: ListView(), isActive: $loggedIn) {
-                    Text("Register")
+                    Text("Sign In")
                 }.padding(10)
                 .border(.black, width: 2)
             }.padding(.horizontal, 72)
