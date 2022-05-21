@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2927C4AB2839538F002E379F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2927C4AA2839538F002E379F /* Constants.swift */; };
+		2927C4AE28395965002E379F /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2927C4AD28395965002E379F /* LoginModel.swift */; };
 		843F80EF2836B127009C46AB /* testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F80EE2836B127009C46AB /* testApp.swift */; };
 		843F80F32836B128009C46AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843F80F22836B128009C46AB /* Assets.xcassets */; };
 		843F80F62836B128009C46AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843F80F52836B128009C46AB /* Preview Assets.xcassets */; };
@@ -32,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2927C4AA2839538F002E379F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2927C4AD28395965002E379F /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		2927C4B72839728B002E379F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2927C4B82839728B002E379F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2927C4B92839728B002E379F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843F80EB2836B127009C46AB /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843F80EE2836B127009C46AB /* testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testApp.swift; sourceTree = "<group>"; };
 		843F80F22836B128009C46AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2927C4AC2839594D002E379F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2927C4AD28395965002E379F /* LoginModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		843F80E22836B127009C46AB = {
 			isa = PBXGroup;
 			children = (
@@ -88,11 +103,16 @@
 		843F80ED2836B127009C46AB /* test */ = {
 			isa = PBXGroup;
 			children = (
+				2927C4B92839728B002E379F /* Info.plist */,
+				2927C4B82839728B002E379F /* Info.plist */,
+				2927C4B72839728B002E379F /* Info.plist */,
+				2927C4AC2839594D002E379F /* Models */,
 				843F811A2836BA2B009C46AB /* ListView.swift */,
 				843F80EE2836B127009C46AB /* testApp.swift */,
 				843F80F22836B128009C46AB /* Assets.xcassets */,
 				843F80F42836B128009C46AB /* Preview Content */,
 				843F81182836B86F009C46AB /* LoginView.swift */,
+				2927C4AA2839538F002E379F /* Constants.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -235,9 +255,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2927C4AE28395965002E379F /* LoginModel.swift in Sources */,
 				843F81192836B86F009C46AB /* LoginView.swift in Sources */,
 				843F80EF2836B127009C46AB /* testApp.swift in Sources */,
 				843F811B2836BA2B009C46AB /* ListView.swift in Sources */,
+				2927C4AB2839538F002E379F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +418,8 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = test/Info.plist;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -425,6 +449,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = test/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -451,6 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sodep.testTests;

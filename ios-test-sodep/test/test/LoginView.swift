@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var username: String = "username"
     @State private var password: String = "password"
+    @State private var result: LoginModel!
     var body: some View {
         VStack{
             Image("loginIcon").resizable()
@@ -33,8 +34,10 @@ struct LoginView: View {
                  .background(.black)
                  .padding(.bottom, 30)
                 Button("Sign in"){
-                    
-                }
+                    loadData(completion: { response in
+                        print(response)
+                    })
+                }.padding().border(.black, width: 2)
             }.padding(.horizontal, 72)
             
             Spacer(minLength: 60)
@@ -46,6 +49,31 @@ struct LoginView: View {
             }.padding()
         }
         
+        
+    }
+    func loadData(completion:@escaping (LoginModel) -> ()) {
+        let body: [String: Any] = ["password": "admin",
+                                   "rememberMe": true,
+                                   "username": "admin"]
+        let jsonBody = try? JSONSerialization.data(withJSONObject: body)
+        guard let url = URL(string: Constants.String.baseUrl + "/api/authenticate") else {
+            print("Invalid url...")
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("\(String(describing: jsonBody?.count))", forHTTPHeaderField: "Content-Length")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonBody
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            let loginModel = try! JSONDecoder().decode(LoginModel.self, from: data!)
+            print(loginModel)
+            DispatchQueue.main.async {
+                completion(loginModel)
+            }
+        }.resume()
         
     }
 }
