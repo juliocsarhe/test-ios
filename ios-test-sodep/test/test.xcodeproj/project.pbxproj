@@ -11,6 +11,7 @@
 		2927C4AE28395965002E379F /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2927C4AD28395965002E379F /* LoginModel.swift */; };
 		2927C4BB283980C3002E379F /* TasksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2927C4BA283980C3002E379F /* TasksModel.swift */; };
 		2927C4BD28399F6E002E379F /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2927C4BC28399F6E002E379F /* TaskDetailView.swift */; };
+		2927C4BF2839AD24002E379F /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2927C4BE2839AD24002E379F /* NewTaskView.swift */; };
 		843F80EF2836B127009C46AB /* testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F80EE2836B127009C46AB /* testApp.swift */; };
 		843F80F32836B128009C46AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843F80F22836B128009C46AB /* Assets.xcassets */; };
 		843F80F62836B128009C46AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843F80F52836B128009C46AB /* Preview Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		2927C4B92839728B002E379F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2927C4BA283980C3002E379F /* TasksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModel.swift; sourceTree = "<group>"; };
 		2927C4BC28399F6E002E379F /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		2927C4BE2839AD24002E379F /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		843F80EB2836B127009C46AB /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843F80EE2836B127009C46AB /* testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testApp.swift; sourceTree = "<group>"; };
 		843F80F22836B128009C46AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				843F81182836B86F009C46AB /* LoginView.swift */,
 				2927C4AA2839538F002E379F /* Constants.swift */,
 				2927C4BC28399F6E002E379F /* TaskDetailView.swift */,
+				2927C4BE2839AD24002E379F /* NewTaskView.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				2927C4AE28395965002E379F /* LoginModel.swift in Sources */,
 				843F81192836B86F009C46AB /* LoginView.swift in Sources */,
 				2927C4BB283980C3002E379F /* TasksModel.swift in Sources */,
+				2927C4BF2839AD24002E379F /* NewTaskView.swift in Sources */,
 				843F80EF2836B127009C46AB /* testApp.swift in Sources */,
 				843F811B2836BA2B009C46AB /* ListView.swift in Sources */,
 				2927C4AB2839538F002E379F /* Constants.swift in Sources */,

@@ -30,15 +30,13 @@ struct ListView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        Button(action: {
-                            
-                        }, label: {
+                        NavigationLink(destination: NewTaskView()) {
                             Text("+")
                                 .font(.system(.largeTitle))
                                 .frame(width: 60, height: 60)
                                 .foregroundColor(Color.white)
                                 .padding(.bottom, 2)
-                        })
+                        }
                         .background(Color.blue)
                         .cornerRadius(30)
                         .padding()
